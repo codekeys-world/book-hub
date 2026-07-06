@@ -1,0 +1,18 @@
+<div class="rating">
+  @for (_ of [].constructor(fullStarts); track $index) {
+    <ng-container>
+      <i class="fas fa-star text-warning"></i>
+    </ng-container>
+  }
+  @if (hasHalfStar) {
+    <ng-container>
+      <i class="fas fa-star-half-alt text-warning"></i>
+    </ng-container>
+  }
+  @for (_ of [].constructor(emptyStarts); track $index) {
+    <ng-container>
+      <i class="fas fa-star"></i>
+    </ng-container>
+  }
+
+</div>
