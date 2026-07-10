@@ -1,6 +1,6 @@
 <h2>My borrowed Books</h2>
 <hr>
-@if(selectedBook){
+@if(selectedBook()){
   <div class="d-flex flex-column col-6">
     <h2>Return and share feedback</h2>
     <div class="d-flex flex-column col-12">
@@ -8,25 +8,25 @@
         <div class="col-1">
           <strong>Title</strong>
         </div>
-        <div class="col-11">{{selectedBook.title}}</div>
+        <div class="col-11">{{selectedBook()?.title}}</div>
       </div>
       <div class="d-flex">
         <div class="col-1">
           <strong>Author</strong>
         </div>
-        <div class="col-11">{{selectedBook.authorName}}</div>
+        <div class="col-11">{{selectedBook()?.authorName}}</div>
       </div>
       <div class="d-flex">
         <div class="col-1">
           <strong>ISBN</strong>
         </div>
-        <div class="col-11">{{selectedBook.isbn}}</div>
+        <div class="col-11">{{selectedBook()?.isbn}}</div>
       </div>
       <div class="d-flex">
         <div class="col-1">
           <strong>Rate</strong>
         </div>
-        <div class="col-11">{{selectedBook.rate}}</div>
+        <div class="col-11">{{selectedBook()?.rate}}</div>
       </div>
     </div>
     <hr>
@@ -48,7 +48,7 @@
           <button (click)="returnBook(false)" type="submit" class="btn btn-outline-success">
             <i class="fa-solid fa-paper-plane"></i>&nbsp;Just Return
           </button>
-          <button (click)="selectedBook = undefined" class="btn btn-link text-danger">
+          <button (click)="selectedBook.set(undefined)" class="btn btn-link text-danger">
             <i class="fas fa-times"></i>&nbsp;Cancel
           </button>
         </div>
@@ -56,7 +56,7 @@
     </div>
   </div>
 }
-@if(!selectedBook){
+@if(!selectedBook()){
   <div>
     <table class="table">
       <thead>
@@ -66,6 +66,8 @@
         <th scope="col">Author</th>
         <th scope="col">ISBN</th>
         <th scope="col">Rate</th>
+        <th scope="col">Return</th>
+        <th scope="col">id</th>
         <th scope="col"><i class="fas fa-cogs"></i></th>
 
       </tr>
@@ -78,6 +80,8 @@
             <td>{{book.authorName}}</td>
             <td>{{book.isbn}}</td>
             <td><i class="fas fa-star text-warning"></i>{{book.rate}}</td>
+            <td>{{book.returned}}</td>
+            <td>{{book.id}}</td>
             <td>
               <div class="d-flex gap-2">
                 @if (book.returned) {
@@ -86,9 +90,7 @@
                 @if (!book.returned) {
                   <i (click)="returnBorrowedBook(book)" class="cursor-pointer fa-solid  fa-paper-plane text-success"></i>
                 }
-
                 <i class="cursor-pointer fa-solid fa-circle-check" [class.text-success]="book.returnApproved"></i>
-
               </div>
             </td>
           </tr>

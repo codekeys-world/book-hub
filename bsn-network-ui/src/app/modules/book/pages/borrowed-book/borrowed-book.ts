@@ -21,7 +21,8 @@ export class BorrowedBook implements OnInit{
   feedBackRequest = signal<FeedbackRequest>({bookId : 0, comment : '', note : 0});
   page = signal<number>(0);
   size = signal<number>(10);
-  selectedBook: BorrowedBookResponse | undefined = undefined;
+  selectedBook = signal<BorrowedBookResponse | undefined>(undefined);
+
   constructor(private bookService: BookService, private feedbackService: FeedbackService) {
   }
   ngOnInit(): void {
@@ -29,8 +30,9 @@ export class BorrowedBook implements OnInit{
   }
 
   returnBorrowedBook(book: BorrowedBookResponse) {
-    this.selectedBook = book;
+    this.selectedBook.set(book);
     this.feedBackRequest().bookId = book.id as number;
+    alert(this.feedBackRequest().bookId);
   }
 
 
@@ -76,19 +78,20 @@ export class BorrowedBook implements OnInit{
 
   returnBook(withFeedback: boolean) {
     this.bookService.returnBorrowBook({
-      'book-id' : this.selectedBook?.id as number
+      'book-id' : this.selectedBook()?.id as number
     }).subscribe({
       next: (response ) =>{
         if(withFeedback){
           this.giveFeedback();
         }
-        this.selectedBook = undefined;
+        this.selectedBook.set(undefined);
         this.findAllBorrowedBooks();
       }
     })
   }
 
   private giveFeedback() {
+    console.log(this.feedBackRequest());
     this.feedbackService.saveFeedback({
       body : this.feedBackRequest()
     }).subscribe({

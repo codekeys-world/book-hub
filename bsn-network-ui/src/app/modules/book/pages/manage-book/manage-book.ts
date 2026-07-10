@@ -64,6 +64,7 @@ export class ManageBook implements OnInit{
       body : this.bookRequest()
     }).subscribe({
       next: (bookId ) =>{
+
         this.bookService.uploadBookCoverPicture({
           'book-id' : bookId,
           body: {

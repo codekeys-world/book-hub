@@ -10,9 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './menu.scss',
 })
 export class Menu implements OnInit{
-  logout() {
 
-  }
 
   ngOnInit(): void {
     const linkColor = document.querySelectorAll('.nav-link');
@@ -25,5 +23,11 @@ export class Menu implements OnInit{
         link.classList.add('active');
       })
     })
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.clear();
+    window.location.reload();
   }
 }

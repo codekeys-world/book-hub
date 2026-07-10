@@ -14,21 +14,20 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   mail:
-    host: localhost
-    port: 1025
-    username: codekeys
-    password: password
+    host: smtp.gmail.com
+    port: 587
+    username: codekeys.dev@gmail.com
+    password: "aazl ekgz rtpx hnbq"
     properties:
-      mail:
-        smtp:
-          trust: "*"
-        auth: true
-        starttls:
-          enable: true
-        connectiontimout: 5000
-        timeout: 3000
-        writetimeout: 5000
-
+      # On force l'écriture à plat ici pour éviter les erreurs d'interprétation
+      "[mail.smtp.auth]": true
+      "[mail.smtp.starttls.enable]": true
+      "[mail.smtp.starttls.required]": true
+      "[mail.smtp.ssl.enable]": false
+        #connectiontimout: 5000
+        #timeout: 3000
+        #writetimeout: 5000
+      protocol: smtp
 application:
   security:
     jwt:
@@ -42,3 +41,5 @@ application:
       photos-output-path: ./uploads
 server:
   port: 8080
+
+#aazl ekgz rtpx hnbq
