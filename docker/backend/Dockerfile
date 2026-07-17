@@ -20,6 +20,9 @@ EXPOSE 8080
 ENV DB_URL=jdbc:postgresql://postgres-sql-bsn:5433/book_social_network
 ENV ACTIVE_PROFILE=${PROFILE}
 ENV JAR_VERSION=${APP_VERSION}
+ENV EMAIL_HOST_NAME=mon_host
+ENV EMAIL_USERNAME=mon_username
+ENV EMAIL_PASSWORD=mon_password
 
 #CMD java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Dspring.datasource.url=${DB_URL} bsn-network-backend-${JAR_VERSION}.jar
 #CMD ["java", "-Dspring.profiles.active=${ACTIVE_PROFILE}", "-Dspring.datasource.url=${DB_URL}", "-jar", "bsn-network-backend-${JAR_VERSION}.jar"]

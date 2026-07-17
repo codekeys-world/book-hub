@@ -23,7 +23,7 @@ services:
       - "1025:1025"
   bsn-api:
     container_name: bsn-api
-    image: bsn/bsn:1.0.0
+    image: bsn/bsn-api:1.0.0
     ports:
       - "8080:8080"
     environment:
