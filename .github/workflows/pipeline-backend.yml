@@ -12,7 +12,7 @@ on:
       - .github/workflows/*-backend.yml
 env:
   EMAIL_HOST_NAME: localhost
-  EMAIL_USERNAME: test-user
+  EMAIL_USERNAME: mama@gmail.com
   EMAIL_PASSWORD: test-password
 
 jobs:
