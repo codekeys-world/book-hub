@@ -41,7 +41,7 @@ jobs:
           file: docker/frontend/Dockerfile
           push: true
           platforms: linux/amd64
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION}},${{ secrets.DOCKERHUB_USERNAME }}/bsn-api:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION}},${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:latest
 
   deploy:
     name: Deploy frontend

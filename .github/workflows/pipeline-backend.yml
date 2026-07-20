@@ -10,6 +10,11 @@ on:
       - docker/backend/**
       - 'docker-compose.yml'
       - .github/workflows/*-backend.yml
+env:
+  EMAIL_HOST_NAME: localhost
+  EMAIL_USERNAME: test-user
+  EMAIL_PASSWORD: test-password
+
 jobs:
   compile:
     runs-on: ubuntu-latest
