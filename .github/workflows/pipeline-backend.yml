@@ -29,6 +29,7 @@ jobs:
       - name: Compile project
         run: |
           cd bsn-network-backend
+          chmod +x mvnw
           ./mvnw clean compile
 
 
@@ -52,6 +53,7 @@ jobs:
       - name: Running unit Tests
         run: |
           cd bsn-network-backend
+          chmod +x mvnw
           ./mvnw clean test
 
 
@@ -77,6 +79,7 @@ jobs:
       - name: Build project
         run: |
           cd bsn-network-backend
+          chmod +x mvnw
           ./mvnw clean package
 
 
@@ -99,6 +102,7 @@ jobs:
       - name: Build project
         run: |
           cd bsn-network-backend
+          chmod +x mvnw
           ./mvnw clean package
 
       - name: Extract project version
@@ -132,14 +136,14 @@ jobs:
     needs: build-image
     steps:
       - name: Create deployment folder
-        run: ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p ci-cd"
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p ci-cd"
 
       - name: Copy docker-compose file
         run: scp docker-compose.yml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:ci-cd/docker-compose.yml
 
       - name: Set ENV variable and deploy
         run: |
-          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} <<EOF
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} <<EOF
           export EMAIL_HOSTNAME=${{ secrets.EMAIL_HOSTNAME }}
           export EMAIL_USERNAME=${{ secrets.EMAIL_USERNAME }}
           export EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}
