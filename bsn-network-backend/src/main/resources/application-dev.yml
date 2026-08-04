@@ -14,7 +14,7 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   mail:
-    host: ${EMAIL_HOST_NAME}
+    host: ${EMAIL_HOSTNAME}
     port: 587
     username: ${EMAIL_USERNAME}
     password: ${EMAIL_PASSWORD}
