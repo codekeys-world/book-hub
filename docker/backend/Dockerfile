@@ -18,6 +18,8 @@ COPY --from=build /build/target/bsn-network-backend-*.jar /app/
 EXPOSE 8080
 
 ENV DB_URL=jdbc:postgresql://postgres-sql-bsn:5432/book_social_network
+ENV DB_USERNAME=codekeys
+ENV DB_PASSWORD=password
 ENV ACTIVE_PROFILE=${PROFILE}
 ENV JAR_VERSION=${APP_VERSION}
 ENV EMAIL_HOST_NAME=mon_host

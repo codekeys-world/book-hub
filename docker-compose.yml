@@ -28,6 +28,8 @@ services:
       - "8080:8080"
     environment:
       DB_URL: jdbc:postgresql://postgres-sql-bsn:5432/book_social_network
+      DB_USERNAME: codekeys
+      DB_PASSWORD: password
     networks:
       - book_social_network
     depends_on:
