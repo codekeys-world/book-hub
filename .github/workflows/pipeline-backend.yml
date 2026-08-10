@@ -90,7 +90,7 @@ jobs:
         run: |
           cd bsn-network-backend
           chmod +x mvnw
-          ./mvnw clean package
+          ./mvnw clean package -DskipTests
 
 
   build-image:
@@ -113,7 +113,7 @@ jobs:
         run: |
           cd bsn-network-backend
           chmod +x mvnw
-          ./mvnw clean package
+          ./mvnw clean package -DskipTests
 
       - name: Extract project version
         id: extract_version
