@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5433/book_social_network}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/book_social_network}
     #jdbc:postgresql://localhost:5433/book_social_network
     username: codekeys
     password: password

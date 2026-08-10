@@ -20,7 +20,7 @@ EXPOSE 8080
 ENV DB_URL=jdbc:postgresql://postgres-sql-bsn:5432/book_social_network
 ENV ACTIVE_PROFILE=${PROFILE}
 ENV JAR_VERSION=${APP_VERSION}
-ENV EMAIL_HOSTNAME=mon_host
+ENV EMAIL_HOST_NAME=mon_host
 ENV EMAIL_USERNAME=mon_username
 ENV EMAIL_PASSWORD=mon_password
 
