@@ -14,10 +14,10 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   mail:
-    host: ${EMAIL_HOSTNAME}
+    host: ${EMAIL_HOSTNAME:smtp.gmail.com}
     port: 587
-    username: ${EMAIL_USERNAME}
-    password: ${EMAIL_PASSWORD}
+    username: ${EMAIL_USERNAME:codekeys.dev@gmail.com}
+    password: ${EMAIL_PASSWORD:aazl ekgz rtpx hnbq}
     properties:
       # On force l'écriture à plat ici pour éviter les erreurs d'interprétation
       "[mail.smtp.auth]": true
