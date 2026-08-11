@@ -67,7 +67,6 @@ jobs:
           chmod +x mvnw
           ./mvnw clean test
 
-
   build:
     runs-on: self-hosted
     name: Build backend
