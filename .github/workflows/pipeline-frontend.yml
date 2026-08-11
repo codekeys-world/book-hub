@@ -10,8 +10,6 @@ on:
       - docker/frontend/**
       - 'docker-compose.yml'
       - .github/workflows/*-frontend.yml
-
-
 jobs:
   build-image:
     name: Build the frontend Docker image
@@ -44,7 +42,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:${{ steps.extract_version.outputs.VERSION}},${{ secrets.DOCKERHUB_USERNAME }}/bsn-ui:latest
 
   deploy:
-    name: Deploy frontend
+    name: Deploy frontend Docker Image
     runs-on: self-hosted
     needs: build-image
     steps:
