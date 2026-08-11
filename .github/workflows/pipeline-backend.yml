@@ -17,7 +17,7 @@ env:
 
 jobs:
   compile:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     name: Compile project
     steps:
       - name: Checkout code
@@ -38,7 +38,7 @@ jobs:
           ./mvnw clean compile
 
   unit-tests:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     name: Unit tests
     services:
       postgres:
@@ -69,7 +69,7 @@ jobs:
 
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     name: Build backend
     needs:
       - compile
@@ -95,7 +95,7 @@ jobs:
 
   build-image:
     name: Build Docker image
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     steps:
       - name: Checkout code
@@ -142,7 +142,7 @@ jobs:
 
   deploy:
     name: Deploy Backend
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build-image
     steps:
       - name: Create deployment folder

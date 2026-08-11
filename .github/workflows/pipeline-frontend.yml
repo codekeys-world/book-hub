@@ -14,8 +14,8 @@ on:
 
 jobs:
   build-image:
-    name: Build the Docker image
-    runs-on: ubuntu-latest
+    name: Build the frontend Docker image
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -45,7 +45,7 @@ jobs:
 
   deploy:
     name: Deploy frontend
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build-image
     steps:
       - name: Create deployment folder
