@@ -61,6 +61,7 @@ jobs:
           rm -rf /home/***-runner/actions-runner/_diag/pages/*
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
           cd ci-cd
+          export TAG="${{ steps.extract_version.outputs.VERSION }}"
           docker compose -f docker-compose.yml pull -q 
           docker compose -f docker-compose.yml up -d --force-recreate
           EOF
