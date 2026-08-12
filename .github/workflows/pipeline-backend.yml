@@ -158,6 +158,7 @@ jobs:
           export EMAIL_USERNAME=${{ secrets.EMAIL_USERNAME }}
           export EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}
           cd ci-cd
+          export DOCKERHUB_USERNAME="${{ secrets.DOCKERHUB_USERNAME }}"
           export TAG="${{ steps.extract_version.outputs.VERSION }}"
           docker compose -f docker-compose.yml pull -q 
           docker compose -f docker-compose.yml up -d --force-recreate
