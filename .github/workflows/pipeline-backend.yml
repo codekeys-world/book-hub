@@ -145,6 +145,8 @@ jobs:
     name: Deploy Backend Docker Image
     runs-on: self-hosted
     needs: build-image
+    env:
+      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
