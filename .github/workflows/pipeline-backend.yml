@@ -91,7 +91,6 @@ jobs:
           chmod +x mvnw
           ./mvnw clean package -DskipTests
 
-
   build-image:
     name: Build Docker image
     runs-on: ubuntu-latest
