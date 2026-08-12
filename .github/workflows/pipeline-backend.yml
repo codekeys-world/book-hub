@@ -151,7 +151,7 @@ jobs:
       - name: Set ENV variable and deploy
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} << 'EOF'
-          rm -rf /home/***-runner/actions-runner/_diag/pages/*
+          rm -rf /home/***-runner/actions-runner/_diag/*
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
           export EMAIL_HOST_NAME=${{ secrets.EMAIL_HOST_NAME }}
           export EMAIL_USERNAME=${{ secrets.EMAIL_USERNAME }}
